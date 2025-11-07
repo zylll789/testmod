@@ -1,6 +1,7 @@
 package com.protons.testmod.block;
 
 import com.protons.testmod.fluid.FluidTypes;
+import com.protons.testmod.fluid.ModFluid;
 import com.protons.testmod.fluid.ModFluids;
 import com.protons.testmod.item.ModItems;
 import com.protons.testmod.state.property.ModProperties;
@@ -13,6 +14,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -23,33 +25,29 @@ public interface ModWaterLoggable extends Waterloggable {
 
     @Override
     default boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
-        return (fluid == Fluids.WATER) || (fluid == ModFluids.OXYGEN_DEFICIENT_WATER_STILL);
+        return fluid.isIn(FluidTags.WATER);//(fluid == Fluids.WATER) || (fluid == ModFluids.OXYGEN_DEFICIENT_WATER_STILL);
     }
 
     @Override
     default boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
-        if (!(Boolean)state.get(Properties.WATERLOGGED)) {
+        if (!(Boolean)state.get(Properties.WATERLOGGED) && fluidState.getFluid().isIn(FluidTags.WATER)) {
             if (fluidState.getFluid() == Fluids.WATER){
                 if (!world.isClient()) {
                     world.setBlockState(pos, state.with(Properties.WATERLOGGED, true)
                             .with(ModProperties.LOGGED_WATER, FluidTypes.WATER), Block.NOTIFY_ALL);
                     world.scheduleFluidTick(pos, fluidState.getFluid(), fluidState.getFluid().getTickRate(world));
                 }
-                System.out.println("1");
                 return true;
-            }
-            if (fluidState.getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL){
+            } else {
+                Fluid fluid = fluidState.getFluid();//TODO
                 if (!world.isClient()) {
                     world.setBlockState(pos, state.with(Properties.WATERLOGGED, true)
-                            .with(ModProperties.LOGGED_WATER, FluidTypes.OXYGEN_DEFICIENT_WATER), Block.NOTIFY_ALL);
+                            .with(ModProperties.LOGGED_WATER, ((ModFluid)fluid).getFluidType()), Block.NOTIFY_ALL);
                     world.scheduleFluidTick(pos, fluidState.getFluid(), fluidState.getFluid().getTickRate(world));
                 }
-                System.out.println("2");
                 return true;
             }
-            System.out.println("222");
         }
-        System.out.println("111");
         return false;
     }
 

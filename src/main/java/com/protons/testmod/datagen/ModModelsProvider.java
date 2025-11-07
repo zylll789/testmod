@@ -74,6 +74,8 @@ public class ModModelsProvider extends FabricModelProvider {
         //已修改或新增
         itemModelGenerator.register(ModItems.SULFUR, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.BAR_SHAPED_CRUSHED_STONE, ModModels.GENERATED);
+
+        itemModelGenerator.register(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE,ModModels.HANDHELD);
     }
 
     private void registerSnowLikeBlocks(Block layer, Block block, BlockStateModelGenerator blockStateModelGenerator) {

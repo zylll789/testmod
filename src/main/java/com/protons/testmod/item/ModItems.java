@@ -3,6 +3,7 @@ package com.protons.testmod.item;
 import com.protons.testmod.TestMod;
 import com.protons.testmod.entity.ModEntities;
 import com.protons.testmod.fluid.ModFluids;
+import com.protons.testmod.item.tool.pickaxe.CrudeStoneHandledStonePickaxe;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
@@ -19,6 +20,8 @@ public class ModItems {
     //已修改或新增
     public static final Item SULFUR = registerItems("sulfur", new Item(new Item.Settings()));
     public static final Item BAR_SHAPED_CRUSHED_STONE = registerItems("bar_shaped_crushed_stone", new Item(new Item.Settings()));
+
+    public static final Item CRUDE_STONE_HANDLED_STONE_PICKAXE = registerItems("crude_stone_handled_stone_pickaxe",new CrudeStoneHandledStonePickaxe(ModToolMaterials.CRUDE_STONE,new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.CRUDE_STONE, 1.5F, -3F))));
 
     private static void addItemsToIngredients(FabricItemGroupEntries fabricItemGroupEntries) {
         fabricItemGroupEntries.add(STROMATOLITE_FRAGMENTS);

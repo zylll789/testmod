@@ -53,6 +53,7 @@ public class ModItemGroup {
                 entries.add(ModItems.BAR_SHAPED_CRUSHED_STONE);
                 entries.add(ModBlocks.VOLCANIC_ASH_BLOCK);
                 entries.add(ModBlocks.VOLCANIC_ASH);
+                entries.add(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE);
             }).build());
 
     public static final ItemGroup PROTEROZOIC_EON = Registry.register(Registries.ITEM_GROUP, new Identifier(TestMod.MOD_ID, "proterozoic_eon_group"),

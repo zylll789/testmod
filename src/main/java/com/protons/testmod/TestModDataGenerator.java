@@ -10,7 +10,7 @@ public class TestModDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(ModBlockTagProvider::new);
-		// pack.addProvider(ModItemTagProvider::new);
+		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModModelsProvider::new);
 		pack.addProvider(ModLootTablesProvider::new);
 		pack.addProvider(ModRecipesProvider::new);

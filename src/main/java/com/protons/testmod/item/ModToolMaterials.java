@@ -1,6 +1,7 @@
 package com.protons.testmod.item;
 
 import com.google.common.base.Suppliers;
+import com.protons.testmod.registry.tag.ModItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
@@ -20,7 +21,7 @@ public enum ModToolMaterials implements ToolMaterial {
     GOLD(BlockTags.INCORRECT_FOR_GOLD_TOOL, 32, 12.0F, 0.0F, 22, () -> Ingredient.ofItems(Items.GOLD_INGOT)),
     NETHERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 2031, 9.0F, 4.0F, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
     */
-    CRUDE_STONE(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 59, 2.0F, 0.0F, 15, () -> Ingredient.fromTag(ItemTags.PLANKS));
+    CRUDE_STONE(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 59, 2.0F, 0.0F, 15, () -> Ingredient.fromTag(ModItemTags.MOD_CRUDE_STONE_TOOL_MATERIALS));
 
     private final TagKey<Block> inverseTag;
     private final int itemDurability;

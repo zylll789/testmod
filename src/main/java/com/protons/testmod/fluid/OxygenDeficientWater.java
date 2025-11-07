@@ -12,6 +12,10 @@ import net.minecraft.world.World;
 
 public class OxygenDeficientWater extends ModFluid{
 
+    public FluidTypes getFluidType(){
+        return FluidTypes.OXYGEN_DEFICIENT_WATER;
+    }
+
     @Override
     protected boolean isInfinite(World world) {
         return true;
