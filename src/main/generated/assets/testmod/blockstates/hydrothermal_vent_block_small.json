@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "testmod:block/hydrothermal_vent_block_small",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "testmod:block/hydrothermal_vent_block_small"
+    },
+    "facing=south": {
+      "model": "testmod:block/hydrothermal_vent_block_small",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "testmod:block/hydrothermal_vent_block_small",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,11 @@
+  {
+  "parent": "testmod:item/sulfur_bud",
+  "textures": {
+    "layer0": "testmod:block/large_sulfur_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 4, 0 ]
+    }
+  }
+}

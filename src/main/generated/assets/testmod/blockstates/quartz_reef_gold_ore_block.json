@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "testmod:block/quartz_reef_gold_ore_block"
+    }
+  }
+}

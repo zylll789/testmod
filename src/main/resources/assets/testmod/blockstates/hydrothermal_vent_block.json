@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "testmod:block/hydrothermal_vent_block"
+      },
+      {
+        "model": "testmod:block/hydrothermal_vent_block",
+        "y": 90
+      },
+      {
+        "model": "testmod:block/hydrothermal_vent_block",
+        "y": 180
+      },
+      {
+        "model": "testmod:block/hydrothermal_vent_block",
+        "y": 270
+      }
+    ]
+  }
+}

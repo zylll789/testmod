@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "testmod:block/marble_block_fossil",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "testmod:block/marble_block_fossil"
+    },
+    "facing=south": {
+      "model": "testmod:block/marble_block_fossil",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "testmod:block/marble_block_fossil",
+      "y": 270
+    }
+  }
+}

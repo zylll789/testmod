@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "testmod:stromatolite_block_connect"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "id": "testmod:stromatolite_fragments"
+  }
+}

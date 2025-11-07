@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "testmod:block/small_sulfur_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "testmod:block/small_sulfur_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "testmod:block/small_sulfur_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "testmod:block/small_sulfur_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "testmod:block/small_sulfur_bud"
+    },
+    "facing=west": {
+      "model": "testmod:block/small_sulfur_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

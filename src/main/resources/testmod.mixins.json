@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.protons.testmod.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"WaterCreatureEntityMixin"
+	],
+	"client": [
+		"TestModMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

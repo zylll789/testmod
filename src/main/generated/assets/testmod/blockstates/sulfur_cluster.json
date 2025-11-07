@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "testmod:block/sulfur_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "testmod:block/sulfur_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "testmod:block/sulfur_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "testmod:block/sulfur_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "testmod:block/sulfur_cluster"
+    },
+    "facing=west": {
+      "model": "testmod:block/sulfur_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

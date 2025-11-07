@@ -1,0 +1,11 @@
+  {
+  "parent": "testmod:item/barite_bud",
+  "textures": {
+    "layer0": "testmod:block/medium_barite_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 6, 0 ]
+    }
+  }
+}

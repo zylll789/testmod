@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "testmod:block/stromatolite_block_connect",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "testmod:block/stromatolite_block_connect"
+    },
+    "facing=south": {
+      "model": "testmod:block/stromatolite_block_connect",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "testmod:block/stromatolite_block_connect",
+      "y": 270
+    }
+  }
+}
