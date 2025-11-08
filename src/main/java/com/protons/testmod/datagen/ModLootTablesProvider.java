@@ -74,6 +74,7 @@ public class ModLootTablesProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.LARGE_BARITE_BUD, dropsWithSilkTouch(ModBlocks.LARGE_BARITE_BUD));
         addDrop(ModBlocks.MEDIUM_BARITE_BUD, dropsWithSilkTouch(ModBlocks.MEDIUM_BARITE_BUD));
         addDrop(ModBlocks.SMALL_BARITE_BUD, dropsWithSilkTouch(ModBlocks.SMALL_BARITE_BUD));
+        addDrop(ModBlocks.CRUDE_CRAFTING_TABLE);
     }
     // 参考 net.minecraft.data.server.loottable.BlockLootTableGenerator
     public LootTable.Builder OreDrops(Block drop, Item item, float min, float max) {

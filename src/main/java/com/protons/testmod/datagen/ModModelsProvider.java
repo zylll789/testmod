@@ -16,6 +16,8 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class ModModelsProvider extends FabricModelProvider {
     public ModModelsProvider(FabricDataOutput output) {
@@ -59,9 +61,9 @@ public class ModModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerAmethyst(ModBlocks.LARGE_SULFUR_BUD);
         blockStateModelGenerator.registerAmethyst(ModBlocks.MEDIUM_SULFUR_BUD);
         blockStateModelGenerator.registerAmethyst(ModBlocks.SMALL_SULFUR_BUD);
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.VOLCANIC_ASH_BLOCK);
-
         this.registerSnowLikeBlocks(ModBlocks.VOLCANIC_ASH, ModBlocks.VOLCANIC_ASH_BLOCK, blockStateModelGenerator);
+        //blockStateModelGenerator.registerCubeWithCustomTextures(Blocks.CRAFTING_TABLE, Blocks.OAK_PLANKS, TextureMap::sideFrontTopBottom);
+        this.registerCraftingTableLikeBlocks(ModBlocks.CRUDE_CRAFTING_TABLE, blockStateModelGenerator);
     }
 
     @Override
@@ -74,8 +76,10 @@ public class ModModelsProvider extends FabricModelProvider {
         //已修改或新增
         itemModelGenerator.register(ModItems.SULFUR, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.BAR_SHAPED_CRUSHED_STONE, ModModels.GENERATED);
+        itemModelGenerator.register(ModItems.STONE_STICK, ModModels.GENERATED);
 
         itemModelGenerator.register(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE,ModModels.HANDHELD);
+        itemModelGenerator.register(ModItems.STONE_HANDLED_STONE_PICKAXE, ModModels.HANDHELD);
     }
 
     private void registerSnowLikeBlocks(Block layer, Block block, BlockStateModelGenerator blockStateModelGenerator) {
@@ -162,4 +166,28 @@ public class ModModelsProvider extends FabricModelProvider {
         return face;
     }
 
+    public final void registerCubeWithOwnCustomTextures(Block block, Function<Block, TextureMap> texturesFactory, BlockStateModelGenerator blockStateModelGenerator) {
+        // 使用提供的工厂函数生成纹理映射
+        TextureMap textureMap = texturesFactory.apply(block);
+        // 使用 Models.CUBE 模型上传方块和其纹理映射，然后将生成的模型ID注册为该方块的单一方块状态
+        blockStateModelGenerator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, Models.CUBE.upload(block, textureMap, blockStateModelGenerator.modelCollector)));
+    }
+
+    public static TextureMap sideFrontTopBottomWithParticle(Block block) {
+        return TextureMap.sideFrontTopBottom(block)
+                .inherit(TextureKey.FRONT, TextureKey.PARTICLE)
+        ;
+    }
+
+    private void registerCraftingTableLikeBlocks(Block block, BlockStateModelGenerator blockStateModelGenerator) {
+        TextureMap textureMap = new TextureMap()
+                .put(TextureKey.PARTICLE, TextureMap.getSubId(block, "_front"))
+                .put(TextureKey.DOWN, TextureMap.getSubId(block, "_bottom"))
+                .put(TextureKey.UP, TextureMap.getSubId(block, "_top"))
+                .put(TextureKey.NORTH, TextureMap.getSubId(block, "_front"))
+                .put(TextureKey.SOUTH, TextureMap.getSubId(block, "_front"))
+                .put(TextureKey.EAST, TextureMap.getSubId(block, "_side"))
+                .put(TextureKey.WEST, TextureMap.getSubId(block, "_side"));
+        blockStateModelGenerator.blockStateCollector.accept(createSingletonBlockState(block, Models.CUBE.upload(block, textureMap, blockStateModelGenerator.modelCollector)));
+    }
 }

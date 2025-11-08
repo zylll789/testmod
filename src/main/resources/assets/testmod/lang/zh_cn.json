@@ -30,6 +30,12 @@
   "block.testmod.meteorite_block": "陨石",
   "block.testmod.rubble_pile": "碎石堆",
   "item.testmod.bar_shaped_crushed_stone": "条状碎石",
+  "item.testmod.stone_stick": "磨制石棍",
+  "block.testmod.volcanic_ash": "火山灰",
+  "block.testmod.volcanic_ash_block": "火山灰块",
+  "item.testmod.crude_stone_handled_stone_pickaxe": "简易石握把石镐",
+  "item.testmod.stone_handled_stone_pickaxe": "石握把石镐",
+  "block.testmod.crude_crafting_table": "简陋工作台",
 
   "itemGroup.proterozoic_eon_group": "元古代",
   "item.testmod.stromatolite_fragments": "叠层石碎块",

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "testmod:block/crude_crafting_table_bottom",
+    "east": "testmod:block/crude_crafting_table_side",
+    "north": "testmod:block/crude_crafting_table_front",
+    "particle": "testmod:block/crude_crafting_table_front",
+    "south": "testmod:block/crude_crafting_table_front",
+    "up": "testmod:block/crude_crafting_table_top",
+    "west": "testmod:block/crude_crafting_table_side"
+  }
+}

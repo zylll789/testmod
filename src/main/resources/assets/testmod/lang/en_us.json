@@ -30,6 +30,12 @@
   "block.testmod.meteorite_block": "Meteorite",
   "block.testmod.rubble_pile": "Rubble Pile",
   "item.testmod.bar_shaped_crushed_stone": "Bar Shaped Crushed Stone",
+  "item.testmod.stone_stick": "Polished Stone Stick",
+  "block.testmod.volcanic_ash": "Volcanic Ash",
+  "block.testmod.volcanic_ash_block": "Volcanic Ash Block",
+  "item.testmod.crude_stone_handled_stone_pickaxe": "Crude Stone Handled Stone Pickaxe",
+  "item.testmod.stone_handled_stone_pickaxe": "Stone Handled Stone Pickaxe",
+  "block.testmod.crude_crafting_table": "Crude Crafting Table",
 
   "itemGroup.proterozoic_eon_group": "Proterozoic group",
   "item.testmod.stromatolite_fragments": "Stromatolite Fragments",

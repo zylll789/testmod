@@ -63,6 +63,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LARGE_BARITE_BUD)
                 .add(ModBlocks.MEDIUM_BARITE_BUD)
                 .add(ModBlocks.SMALL_BARITE_BUD)
+                .add(ModBlocks.CRUDE_CRAFTING_TABLE)
                 ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
@@ -83,7 +84,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PHYLLITE_BLOCK)
                 .add(ModBlocks.PHYLLITE_BLOCK_FOSSIL)
                 //已修改或新增
-                .add(ModBlocks.PRIMORDIAL_CRUST_ROCK_BLOCK)
+                //.add(ModBlocks.PRIMORDIAL_CRUST_ROCK_BLOCK)
                 .add(ModBlocks.KOMATIITE_BLOCK)
                 .add(ModBlocks.SERPENTINITE_BLOCK)
                 .add(ModBlocks.GREEN_SCHIST_BLOCK)

@@ -1,5 +1,6 @@
 package com.protons.testmod.datagen;
 
+import com.protons.testmod.block.ModBlocks;
 import com.protons.testmod.item.ModItems;
 import com.protons.testmod.registry.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -17,10 +18,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS)
+                .add(ModBlocks.PRIMORDIAL_CRUST_ROCK_BLOCK.asItem());
+
         getOrCreateTagBuilder(ModItemTags.MOD_CRUDE_STONE_TOOL_MATERIALS)
                 .add(ModItems.BAR_SHAPED_CRUSHED_STONE);
 
+        getOrCreateTagBuilder(ModItemTags.MOD_STONE_TOOL_MATERIALS)
+                .add(ModBlocks.PRIMORDIAL_CRUST_ROCK_BLOCK.asItem());
+
         getOrCreateTagBuilder(ItemTags.PICKAXES)
-                .add(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE);
+                .add(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE)
+                .add(ModItems.STONE_HANDLED_STONE_PICKAXE);
     }
 }

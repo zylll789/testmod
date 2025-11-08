@@ -1,3 +1,5 @@
-// 1.20.6	2025-11-07T23:42:56.875878	Test Mod/Tags for minecraft:item
-1058033e4aa91083e3b2eaac3dbd51d12c0aeb3e data\minecraft\tags\items\pickaxes.json
+// 1.20.6	2025-11-08T14:55:54.2662395	Test Mod/Tags for minecraft:item
+7f3529161a48b4ba44d6ec939515fff7faae150f data\testmod\tags\items\mod_stone_tool_materials.json
 7e8ad1c357e83267046e1073319d8e28e2c0d481 data\testmod\tags\items\mod_crude_stone_tool_materials.json
+7f3529161a48b4ba44d6ec939515fff7faae150f data\minecraft\tags\items\stone_crafting_materials.json
+27c72bca0a91283a6e7f31b65ba99388e822861a data\minecraft\tags\items\pickaxes.json
