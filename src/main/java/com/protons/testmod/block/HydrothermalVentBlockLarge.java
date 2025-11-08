@@ -25,8 +25,7 @@ import net.minecraft.world.WorldAccess;
 
 public class HydrothermalVentBlockLarge extends HorizontalFacingBlock implements ModWaterLoggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final EnumProperty LOGGED_WATER = ModProperties.LOGGED_WATER;
+    private FluidState fluidState = Fluids.EMPTY.getDefaultState();
 
     public static final MapCodec<StromatoliteBlock> CODEC = Block.createCodec(StromatoliteBlock::new);
 
@@ -39,14 +38,13 @@ public class HydrothermalVentBlockLarge extends HorizontalFacingBlock implements
         super(settings);
         setDefaultState(getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, Direction.NORTH)
-                .with(WATERLOGGED, false)
-                .with(LOGGED_WATER, FluidTypes.DRY));
+                .with(WATERLOGGED, false));
     }
 
     // 让方块认识这个属性，否则设置该属性将会抛出异常。
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED, LOGGED_WATER);
+        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED);
     }
 
     @Override
@@ -68,30 +66,28 @@ public class HydrothermalVentBlockLarge extends HorizontalFacingBlock implements
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        this.setFluidState(ctx.getWorld().getFluidState(ctx.getBlockPos()));
         return this.getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER || ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL)
-                .with(LOGGED_WATER, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER ?
-                        FluidTypes.WATER : (ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL ?
-                        FluidTypes.OXYGEN_DEFICIENT_WATER : FluidTypes.DRY));
+                ;
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER ? ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? fluidState : super.getFluidState(state);
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            if (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER){
-                world.scheduleFluidTick(pos, ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getTickRate(world));
-            }
-            if (state.get(LOGGED_WATER) == FluidTypes.WATER){
-                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            }
+            world.scheduleFluidTick(pos, world.getFluidState(pos).getFluid(), world.getFluidState(pos).getFluid().getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
+    @Override
+    public void setFluidState(FluidState fluidState){
+        this.fluidState = fluidState;
+    }
 }

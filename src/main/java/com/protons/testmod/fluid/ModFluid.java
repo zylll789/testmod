@@ -18,6 +18,8 @@ import net.minecraft.world.WorldView;
 public abstract class ModFluid extends FlowableFluid {
 
     public abstract FluidTypes getFluidType();
+
+    public abstract FlowableFluid getSerFluid();
     /**
      * @return 给定的流体是否为该流体的实例？
      */

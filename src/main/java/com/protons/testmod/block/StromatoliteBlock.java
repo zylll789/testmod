@@ -1,22 +1,17 @@
 package com.protons.testmod.block;
 
 import com.mojang.serialization.MapCodec;
-import com.protons.testmod.fluid.FluidTypes;
+import com.protons.testmod.fluid.ModFluid;
 import com.protons.testmod.fluid.ModFluids;
-import com.protons.testmod.item.ModItems;
-import com.protons.testmod.state.property.ModProperties;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -24,13 +19,11 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
-import org.apache.commons.logging.Log;
-import org.jetbrains.annotations.Nullable;
 
 public class StromatoliteBlock extends HorizontalFacingBlock implements ModWaterLoggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final EnumProperty LOGGED_WATER = ModProperties.LOGGED_WATER;
+    private FluidState fluidState;
+    private Fluid fluidType = Fluids.EMPTY;
 
     public static final MapCodec<StromatoliteBlock> CODEC = Block.createCodec(StromatoliteBlock::new);
 
@@ -41,16 +34,17 @@ public class StromatoliteBlock extends HorizontalFacingBlock implements ModWater
 
     public StromatoliteBlock(Settings settings) {
         super(settings);
+        this.fluidState = Fluids.EMPTY.getDefaultState();
+        this.fluidType = Fluids.EMPTY;
         setDefaultState(getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, Direction.NORTH)
-                .with(WATERLOGGED, false)
-                .with(LOGGED_WATER, FluidTypes.DRY));
+                .with(WATERLOGGED, false));
     }
 
     // 让方块认识这个属性，否则设置该属性将会抛出异常。
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED, LOGGED_WATER);
+        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED);
     }
 
     @Override
@@ -72,28 +66,34 @@ public class StromatoliteBlock extends HorizontalFacingBlock implements ModWater
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        this.setFluidState(ctx.getWorld().getFluidState(ctx.getBlockPos()));
         return this.getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER || ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL)
-                .with(LOGGED_WATER, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER ?
-                        FluidTypes.WATER : (ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL ?
-                        FluidTypes.OXYGEN_DEFICIENT_WATER : FluidTypes.DRY));
+                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isIn(FluidTags.WATER))
+                ;
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER ? ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
+        if (this.fluidType==Fluids.EMPTY){
+            System.out.println("111");
+        } else if(this.fluidType== Fluids.WATER){
+            System.out.println("222");
+        } else {
+            System.out.println("333");
+        }
+        return state.get(WATERLOGGED) ? (this.fluidType==Fluids.EMPTY) ? Fluids.EMPTY.getDefaultState() : (this.fluidType== Fluids.WATER ? Fluids.WATER.getStill(false) : ((ModFluid)this.fluidType).getSerFluid().getStill(false)) : super.getFluidState(state);
+    }
+
+    @Override
+    public void setFluidState(FluidState fluidState) {
+        this.fluidType = fluidState.getFluid(); // 只保存类型
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            if (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER){
-                world.scheduleFluidTick(pos, ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getTickRate(world));
-            }
-            if (state.get(LOGGED_WATER) == FluidTypes.WATER){
-                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            }
+            world.scheduleFluidTick(pos, this.fluidType, this.fluidType.getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }

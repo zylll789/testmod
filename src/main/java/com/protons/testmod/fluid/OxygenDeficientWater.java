@@ -3,6 +3,7 @@ package com.protons.testmod.fluid;
 import com.protons.testmod.block.ModBlocks;
 import com.protons.testmod.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
@@ -15,6 +16,8 @@ public class OxygenDeficientWater extends ModFluid{
     public FluidTypes getFluidType(){
         return FluidTypes.OXYGEN_DEFICIENT_WATER;
     }
+
+    public FlowableFluid getSerFluid(){return ModFluids.OXYGEN_DEFICIENT_WATER_STILL;}
 
     @Override
     protected boolean isInfinite(World world) {

@@ -1,9 +1,7 @@
 package com.protons.testmod.block;
 
 import com.mojang.serialization.MapCodec;
-import com.protons.testmod.block.entity.ModBlockEntities;
 import com.protons.testmod.block.entity.PrimordialPetriDishBlockEntity;
-import com.protons.testmod.fluid.FluidTypes;
 import com.protons.testmod.fluid.ModFluids;
 import com.protons.testmod.item.ModItems;
 import com.protons.testmod.state.property.ModProperties;
@@ -20,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
@@ -39,8 +36,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLoggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final EnumProperty LOGGED_WATER = ModProperties.LOGGED_WATER;
+    private FluidState fluidState = Fluids.EMPTY.getDefaultState();
 
     public static final MapCodec<PrimordialPetriDish> CODEC = Block.createCodec(PrimordialPetriDish::new);
 
@@ -60,7 +56,6 @@ public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLogg
         setDefaultState(getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, Direction.NORTH)
                 .with(WATERLOGGED, false)
-                .with(LOGGED_WATER, FluidTypes.DRY)
                 .with(HAS_BASE,false)
                 .with(IS_CRAFTING, false)
         );
@@ -69,7 +64,7 @@ public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLogg
     // 让方块认识这个属性，否则设置该属性将会抛出异常。
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED, LOGGED_WATER, HAS_BASE, IS_CRAFTING);
+        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED, HAS_BASE, IS_CRAFTING);
     }
 
     @Override
@@ -91,37 +86,30 @@ public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLogg
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        this.setFluidState(ctx.getWorld().getFluidState(ctx.getBlockPos()));
         return this.getDefaultState()
                 .with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER || ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL)
-                .with(LOGGED_WATER, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER ?
-                        FluidTypes.WATER : (ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == ModFluids.OXYGEN_DEFICIENT_WATER_STILL ?
-                        FluidTypes.OXYGEN_DEFICIENT_WATER : FluidTypes.DRY))
                 .with(HAS_BASE,false)
                 .with(IS_CRAFTING, false);
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER ? ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? fluidState : super.getFluidState(state);
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            if (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER){
-                world.scheduleFluidTick(pos, ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getTickRate(world));
-            }
-            if (state.get(LOGGED_WATER) == FluidTypes.WATER){
-                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            }
+            world.scheduleFluidTick(pos, world.getFluidState(pos).getFluid(), world.getFluidState(pos).getFluid().getTickRate(world));
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
-
+/*
     public boolean canStartWork(){
         return this.getDefaultState().get(LOGGED_WATER)==FluidTypes.OXYGEN_DEFICIENT_WATER;
-    }
+    }*/
 
     @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -205,6 +193,11 @@ public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLogg
                 }
 
         }
+    }
+
+    @Override
+    public void setFluidState(FluidState fluidState){
+        this.fluidState = fluidState;
     }
 }
 

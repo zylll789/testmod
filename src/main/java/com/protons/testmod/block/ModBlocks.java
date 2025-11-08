@@ -2,15 +2,13 @@ package com.protons.testmod.block;
 
 import com.protons.testmod.TestMod;
 import com.protons.testmod.fluid.ModFluids;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FluidBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -105,6 +103,16 @@ public class ModBlocks {
     public static final Block VOLCANIC_ASH_BLOCK = registerBlocksWithBlockItems("volcanic_ash_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(0.2F)));
     public static final Block CRUDE_CRAFTING_TABLE = registerBlocksWithBlockItems("crude_crafting_table", new CrudeCraftingTableBlock(AbstractBlock.Settings.create().requiresTool().strength(2F)));
     public static final Block PRIMORDIAL_PETRI_DISH = registerBlocksWithBlockItems("primordial_petri_dish", new PrimordialPetriDish(AbstractBlock.Settings.create().requiresTool().nonOpaque().strength(1.5F)));
+
+    public static final Block CHEMOAUTOTROPH_MAT = registerBlocksWithBlockItems("chemoautotroph_mat", new ChemoautotrophMatBlock(
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLACK)
+                    .solid()
+                    .noCollision()
+                    .strength(0.2F)
+                    .sounds(BlockSoundGroup.SCULK_VEIN)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    ));
 
 
     private static Block registerBlocksWithBlockItems(String name, Block block) {
