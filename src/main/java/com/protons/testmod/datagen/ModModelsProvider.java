@@ -78,6 +78,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SULFUR, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.BAR_SHAPED_CRUSHED_STONE, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.STONE_STICK, ModModels.GENERATED);
+        itemModelGenerator.register(ModItems.CRYSTAL_OF_LIFE, ModModels.GENERATED);
 
         itemModelGenerator.register(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE,ModModels.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_HANDLED_STONE_PICKAXE, ModModels.HANDHELD);

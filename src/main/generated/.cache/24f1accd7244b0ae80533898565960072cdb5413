@@ -1,4 +1,4 @@
-// 1.20.6	2025-11-08T15:20:53.0827634	Test Mod/Model Definitions
+// 1.20.6	2025-11-09T01:23:29.3520542	Test Mod/Model Definitions
 da30ded80801789d6b6e53beb347479cfd89cb86 assets\testmod\models\item\marble_block.json
 9537c39453925350d9c73a382a3a11dc3868bb1e assets\testmod\models\block\marble_block.json
 ac6bb4787c4ea60526de046d011d62bd37e03038 assets\testmod\models\block\medium_barite_bud.json
@@ -10,6 +10,7 @@ ac6bb4787c4ea60526de046d011d62bd37e03038 assets\testmod\models\block\medium_bari
 379ede347fe08a4ed0ac87ad02231d94d3400658 assets\testmod\models\block\limestone_block.json
 c0d4fb4b7d35d7a4c2ad58f463f5816dd6643022 assets\testmod\models\item\sinter_barite_deposit_block.json
 1a7b496bad3b1c64d7c2efe6d53fbfbeea355434 assets\testmod\models\block\silt_block.json
+782cbb39ab4866a278b07f48d60c9494588fab8e assets\testmod\models\item\crystal_of_life.json
 ef37c886ddd105edc1fbdc4f35d04745b7e219ec assets\testmod\models\item\sinter_sulfur_deposit_block.json
 33fe24bfff212df186bc63b2845493c9861a2ab9 assets\testmod\models\item\oxygen_deficient_water_bucket.json
 36595830db1349a7cc1185a41ef70b678615fb5c assets\testmod\models\item\stone_handled_stone_pickaxe.json

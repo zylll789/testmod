@@ -37,6 +37,8 @@
   "item.testmod.stone_handled_stone_pickaxe": "Stone Handled Stone Pickaxe",
   "block.testmod.crude_crafting_table": "Crude Crafting Table",
   "block.testmod.primordial_petri_dish": "Primordial Petri Dish",
+  "item.testmod.crystal_of_life": "Crystal Of Life",
+  "block.testmod.chemoautotroph_mat": "Chemoautotroph Mat",
 
   "itemGroup.proterozoic_eon_group": "Proterozoic group",
   "item.testmod.stromatolite_fragments": "Stromatolite Fragments",

@@ -25,6 +25,7 @@ public class ModItems {
 
     public static final Item CRUDE_STONE_HANDLED_STONE_PICKAXE = registerItems("crude_stone_handled_stone_pickaxe",new CrudeStoneHandledStonePickaxe(ModToolMaterials.MOD_CRUDE_STONE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.MOD_CRUDE_STONE, 0.8F, -3F))));
     public static final Item STONE_HANDLED_STONE_PICKAXE = registerItems("stone_handled_stone_pickaxe", new StoneHandledStonePickaxe(ModToolMaterials.MOD_STONE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.MOD_STONE, 1.0F, -2.8F))));
+    public static final Item CRYSTAL_OF_LIFE = registerItems("crystal_of_life", new Item(new Item.Settings()));
 
     private static void addItemsToIngredients(FabricItemGroupEntries fabricItemGroupEntries) {
         fabricItemGroupEntries.add(STROMATOLITE_FRAGMENTS);
