@@ -1,0 +1,7 @@
+{
+  "parent": "block/sculk_vein",
+  "textures": {
+    "particle": "testmod:block/chemoautotroph_mat",
+    "sculk_vein": "testmod:block/chemoautotroph_mat"
+  }
+}

@@ -3,17 +3,12 @@ package com.protons.testmod.block;
 import com.mojang.serialization.MapCodec;
 import com.protons.testmod.fluid.FluidTypes;
 import com.protons.testmod.fluid.ModFluids;
-import com.protons.testmod.item.ModItems;
 import com.protons.testmod.state.property.ModProperties;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
@@ -24,8 +19,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
-import org.apache.commons.logging.Log;
-import org.jetbrains.annotations.Nullable;
 
 public class StromatoliteBlock extends HorizontalFacingBlock implements ModWaterLoggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;

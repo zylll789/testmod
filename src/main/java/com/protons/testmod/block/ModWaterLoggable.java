@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.FluidTags;
@@ -31,7 +32,7 @@ public interface ModWaterLoggable extends Waterloggable {
     @Override
     default boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
         if (!(Boolean)state.get(Properties.WATERLOGGED) && fluidState.getFluid().isIn(FluidTags.WATER)) {
-            if (fluidState.getFluid() == Fluids.WATER){
+            if (fluidState.getFluid() == Fluids.WATER || fluidState.getFluid() == Fluids.FLOWING_WATER){
                 if (!world.isClient()) {
                     world.setBlockState(pos, state.with(Properties.WATERLOGGED, true)
                             .with(ModProperties.LOGGED_WATER, FluidTypes.WATER), Block.NOTIFY_ALL);
@@ -54,17 +55,13 @@ public interface ModWaterLoggable extends Waterloggable {
     @Override
     default ItemStack tryDrainFluid(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos, BlockState state) {
         if (state.get(Properties.WATERLOGGED)) {
+            Item item = world.getFluidState(pos).getFluid().getBucketItem();
             world.setBlockState(pos, state.with(Properties.WATERLOGGED, Boolean.FALSE)
                     .with(ModProperties.LOGGED_WATER, FluidTypes.DRY), Block.NOTIFY_ALL);
             if (!state.canPlaceAt(world, pos)) {
                 world.breakBlock(pos, true);
             }
-            if (state.get(ModProperties.LOGGED_WATER) == FluidTypes.WATER) {
-                return new ItemStack(Items.WATER_BUCKET);
-            }
-            if (state.get(ModProperties.LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER) {
-                return new ItemStack(ModItems.OXYGEN_DEFICIENT_WATER_BUCKET);
-            }
+            return new ItemStack(item);
         }
         return ItemStack.EMPTY;
     }

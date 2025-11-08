@@ -23,6 +23,8 @@ public class TestModClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.RANGEA, RangeaModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.RANGEA, RangeaRenderer::new);
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHEMOAUTOTROPH_MAT, RenderLayer.getCutout());
+
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_FLOWING, new SimpleFluidRenderHandler(
                 new Identifier("minecraft:block/water_still"),
                 new Identifier("minecraft:block/water_flow"),

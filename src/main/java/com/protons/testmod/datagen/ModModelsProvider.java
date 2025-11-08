@@ -65,6 +65,7 @@ public class ModModelsProvider extends FabricModelProvider {
         //blockStateModelGenerator.registerCubeWithCustomTextures(Blocks.CRAFTING_TABLE, Blocks.OAK_PLANKS, TextureMap::sideFrontTopBottom);
         this.registerCraftingTableLikeBlocks(ModBlocks.CRUDE_CRAFTING_TABLE, blockStateModelGenerator);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.PRIMORDIAL_PETRI_DISH);
+        blockStateModelGenerator.registerWallPlant(ModBlocks.CHEMOAUTOTROPH_MAT);
     }
 
     @Override

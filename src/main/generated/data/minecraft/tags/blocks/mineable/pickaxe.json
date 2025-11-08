@@ -45,6 +45,7 @@
     "testmod:medium_barite_bud",
     "testmod:small_barite_bud",
     "testmod:crude_crafting_table",
-    "testmod:primordial_petri_dish"
+    "testmod:primordial_petri_dish",
+    "testmod:chemoautotroph_mat"
   ]
 }

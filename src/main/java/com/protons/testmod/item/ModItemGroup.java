@@ -59,6 +59,7 @@ public class ModItemGroup {
                 entries.add(ModBlocks.CRUDE_CRAFTING_TABLE);
                 entries.add(ModBlocks.PRIMORDIAL_PETRI_DISH);
                 entries.add(ModItems.CRYSTAL_OF_LIFE);
+                entries.add(ModBlocks.CHEMOAUTOTROPH_MAT);
             }).build());
 
     public static final ItemGroup PROTEROZOIC_EON = Registry.register(Registries.ITEM_GROUP, new Identifier(TestMod.MOD_ID, "proterozoic_eon_group"),

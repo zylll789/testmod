@@ -65,6 +65,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SMALL_BARITE_BUD)
                 .add(ModBlocks.CRUDE_CRAFTING_TABLE)
                 .add(ModBlocks.PRIMORDIAL_PETRI_DISH)
+                .add(ModBlocks.CHEMOAUTOTROPH_MAT)
                 ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
@@ -113,6 +114,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LARGE_BARITE_BUD)
                 .add(ModBlocks.MEDIUM_BARITE_BUD)
                 .add(ModBlocks.SMALL_BARITE_BUD)
+                .add(ModBlocks.CHEMOAUTOTROPH_MAT)
                 ;
 
         getOrCreateTagBuilder(ModBlockTags.VOLCANIC_ASH_LAYER_CAN_SURVIVE_ON)

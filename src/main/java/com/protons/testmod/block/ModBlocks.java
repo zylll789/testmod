@@ -11,6 +11,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -106,6 +107,16 @@ public class ModBlocks {
     public static final Block CRUDE_CRAFTING_TABLE = registerBlocksWithBlockItems("crude_crafting_table", new CrudeCraftingTableBlock(AbstractBlock.Settings.create().requiresTool().strength(2F)));
     public static final Block PRIMORDIAL_PETRI_DISH = registerBlocksWithBlockItems("primordial_petri_dish", new PrimordialPetriDish(AbstractBlock.Settings.create().requiresTool().nonOpaque().strength(1.5F)));
 
+    public static final Block CHEMOAUTOTROPH_MAT = registerBlocksWithBlockItems("chemoautotroph_mat", new ChemoautotrophMatBlock(
+            AbstractBlock.Settings.create()
+                    .solid()
+                    //.nonOpaque()
+                    .noCollision()
+                    .strength(0.2F)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.SCULK_VEIN)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    ));
 
     private static Block registerBlocksWithBlockItems(String name, Block block) {
         registerBlockItems(name, block);
