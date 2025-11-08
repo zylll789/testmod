@@ -1,6 +1,7 @@
 package com.protons.testmod;
 
 import com.protons.testmod.block.ModBlocks;
+import com.protons.testmod.block.entity.ModBlockEntities;
 import com.protons.testmod.entity.ModEntities;
 import com.protons.testmod.fluid.ModFluids;
 import com.protons.testmod.item.ModItemGroup;
@@ -29,6 +30,7 @@ public class TestMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModItemGroup.registerModItemGroup();
 		ModBlocks.registerModBlocks();
+        ModBlockEntities.registerModBlockEntities();
 		ModFluids.registerModFluids();
 		ModEntities.registerModEntities();
 	}
