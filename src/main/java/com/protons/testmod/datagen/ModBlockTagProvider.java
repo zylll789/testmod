@@ -64,6 +64,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MEDIUM_BARITE_BUD)
                 .add(ModBlocks.SMALL_BARITE_BUD)
                 .add(ModBlocks.CRUDE_CRAFTING_TABLE)
+                .add(ModBlocks.PRIMORDIAL_PETRI_DISH)
                 ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)

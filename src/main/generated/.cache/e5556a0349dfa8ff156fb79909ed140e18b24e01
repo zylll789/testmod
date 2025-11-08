@@ -1,4 +1,4 @@
-// 1.20.6	2025-11-08T14:55:54.2697471	Test Mod/Block Loot Tables
+// 1.20.6	2025-11-08T15:20:53.0847643	Test Mod/Block Loot Tables
 e5590b2a85e1a4e6f6d2eb8c481ae34fc0f53565 data\testmod\loot_tables\blocks\large_barite_bud.json
 8cea1d7db22ce06a0d5f084414bb21df1253a740 data\testmod\loot_tables\blocks\dolomite_block.json
 40281e63a03b48a821eb74450c5cf91b4a1c5526 data\testmod\loot_tables\blocks\primordial_crust_rock_block.json
@@ -24,6 +24,7 @@ ccd2c17a2829a2b99bc0af455f3b94bd2fef8c27 data\testmod\loot_tables\blocks\dolomit
 4cbe1fea4e00ae0b75f0c907b2303b0b4915e5a3 data\testmod\loot_tables\blocks\rubble_pile.json
 40498a5a602843ebb32ac17503d6cb5b81c6d2f4 data\testmod\loot_tables\blocks\barite_cluster.json
 f52bd9ebc6e28e1ba2002380ef1a795544d9ef5c data\testmod\loot_tables\blocks\trondhjemite_block.json
+957d7eabe0e3503394a853bdb3f8e5378b881eae data\testmod\loot_tables\blocks\primordial_petri_dish.json
 a21d03f6ac8f2bd7e159b9d870ad33b9c6cba498 data\testmod\loot_tables\blocks\gneiss_block.json
 06681166a71e5cd761a62a562b1aa15f34c0cdab data\testmod\loot_tables\blocks\stromatolite_block.json
 70d144d74e9284c4b8dc52b694ae994803cd2d3a data\testmod\loot_tables\blocks\silt_block.json
@@ -38,7 +39,7 @@ f2d4f5421bde48fabf72c9aed0dda566fbf31521 data\testmod\loot_tables\blocks\phyllit
 38dd69a91b345255da5b382016e0048b7df16ba2 data\testmod\loot_tables\blocks\hydrothermal_vent_block_small.json
 975021688b5720bebd67dfe8e175101887d4496a data\testmod\loot_tables\blocks\limestone_block_fossil.json
 7db7aff0fc0fb0f12601f619ddb321714452fc7e data\testmod\loot_tables\blocks\quartz_reef_block.json
-1d4929d7d6176f60e5ea991a577527ed251ef375 data\testmod\loot_tables\blocks\crude_crafting_table.json
+f0ada5efba3def682322ae9bd3fb4577526fab7a data\testmod\loot_tables\blocks\crude_crafting_table.json
 06ac256c2d29730ace3efa0c603601ba057dc37a data\testmod\loot_tables\blocks\sinter_block.json
 54fb712047c9b56b7c09a00c9b1ec1251efb5781 data\testmod\loot_tables\blocks\meteorite_block.json
 d878987b4e896b32b5c0cd023f4cf4818e0082ad data\testmod\loot_tables\blocks\shale_block_fossil.json

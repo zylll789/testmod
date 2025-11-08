@@ -44,6 +44,7 @@
     "testmod:large_barite_bud",
     "testmod:medium_barite_bud",
     "testmod:small_barite_bud",
-    "testmod:crude_crafting_table"
+    "testmod:crude_crafting_table",
+    "testmod:primordial_petri_dish"
   ]
 }

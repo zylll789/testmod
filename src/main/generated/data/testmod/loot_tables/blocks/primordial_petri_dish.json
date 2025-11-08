@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "testmod:crude_crafting_table"
+          "name": "testmod:primordial_petri_dish"
         }
       ],
       "rolls": 1.0

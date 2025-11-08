@@ -101,7 +101,8 @@ public class ModBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)
     ));
     public static final Block VOLCANIC_ASH_BLOCK = registerBlocksWithBlockItems("volcanic_ash_block", new Block(AbstractBlock.Settings.create().requiresTool().strength(0.2F)));
-    public static final Block CRUDE_CRAFTING_TABLE = registerBlocksWithBlockItems("crude_crafting_table", new CrudeCraftingTableBlock(AbstractBlock.Settings.create().strength(2.5F)));
+    public static final Block CRUDE_CRAFTING_TABLE = registerBlocksWithBlockItems("crude_crafting_table", new CrudeCraftingTableBlock(AbstractBlock.Settings.create().requiresTool().strength(2F)));
+    public static final Block PRIMORDIAL_PETRI_DISH = registerBlocksWithBlockItems("primordial_petri_dish", new PrimordialPetriDish(AbstractBlock.Settings.create().requiresTool().nonOpaque().strength(1.5F)));
 
 
 

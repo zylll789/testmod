@@ -64,6 +64,7 @@ public class ModModelsProvider extends FabricModelProvider {
         this.registerSnowLikeBlocks(ModBlocks.VOLCANIC_ASH, ModBlocks.VOLCANIC_ASH_BLOCK, blockStateModelGenerator);
         //blockStateModelGenerator.registerCubeWithCustomTextures(Blocks.CRAFTING_TABLE, Blocks.OAK_PLANKS, TextureMap::sideFrontTopBottom);
         this.registerCraftingTableLikeBlocks(ModBlocks.CRUDE_CRAFTING_TABLE, blockStateModelGenerator);
+        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.PRIMORDIAL_PETRI_DISH);
     }
 
     @Override

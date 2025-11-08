@@ -57,6 +57,7 @@ public class ModItemGroup {
                 entries.add(ModItems.STONE_HANDLED_STONE_PICKAXE);
                 entries.add(ModItems.STONE_STICK);
                 entries.add(ModBlocks.CRUDE_CRAFTING_TABLE);
+                entries.add(ModBlocks.PRIMORDIAL_PETRI_DISH);
             }).build());
 
     public static final ItemGroup PROTEROZOIC_EON = Registry.register(Registries.ITEM_GROUP, new Identifier(TestMod.MOD_ID, "proterozoic_eon_group"),
