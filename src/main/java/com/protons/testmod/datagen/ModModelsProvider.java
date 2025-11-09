@@ -1,6 +1,5 @@
 package com.protons.testmod.datagen;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.protons.testmod.TestMod;
@@ -10,13 +9,11 @@ import com.protons.testmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class ModModelsProvider extends FabricModelProvider {
@@ -74,16 +71,15 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.DICKINSONIA_SPAWN_EGG, ModModels.TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ModItems.CHARNIA_SPAWN_EGG, ModModels.TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ModItems.RANGEA_SPAWN_EGG, ModModels.TEMPLATE_SPAWN_EGG);
-        itemModelGenerator.register(ModItems.OXYGEN_DEFICIENT_WATER_BUCKET, ModModels.GENERATED);
         // itemModelGenerator.register(ModItems.SAMPLE_ITEM, Models.GENERATED);
         //已修改或新增
         itemModelGenerator.register(ModItems.SULFUR, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.BAR_SHAPED_CRUSHED_STONE, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.STONE_STICK, ModModels.GENERATED);
         itemModelGenerator.register(ModItems.CRYSTAL_OF_LIFE, ModModels.GENERATED);
-
         itemModelGenerator.register(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE,ModModels.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_HANDLED_STONE_PICKAXE, ModModels.HANDHELD);
+        itemModelGenerator.register(ModItems.PRIMORDIAL_SOUP_BUCKET, ModModels.GENERATED);
     }
 
     private void registerSnowLikeBlocks(Block layer, Block block, BlockStateModelGenerator blockStateModelGenerator) {

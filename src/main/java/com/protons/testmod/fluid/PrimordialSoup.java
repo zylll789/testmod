@@ -10,10 +10,10 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.world.World;
 
-public class OxygenDeficientWater extends ModFluid{
+public class PrimordialSoup extends ModFluid{
 
     public FluidTypes getFluidType(){
-        return FluidTypes.OXYGEN_DEFICIENT_WATER;
+        return FluidTypes.PRIMORDIAL_SOUP;
     }
 
     @Override
@@ -23,12 +23,12 @@ public class OxygenDeficientWater extends ModFluid{
 
     @Override
     public Fluid getFlowing() {
-        return ModFluids.OXYGEN_DEFICIENT_WATER_FLOWING;
+        return ModFluids.PRIMORDIAL_SOUP_FLOWING;
     }
 
     @Override
     public Fluid getStill() {
-        return ModFluids.OXYGEN_DEFICIENT_WATER_STILL;
+        return ModFluids.PRIMORDIAL_SOUP_STILL;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class OxygenDeficientWater extends ModFluid{
 
     @Override
     public Item getBucketItem() {
-        return ModItems.OXYGEN_DEFICIENT_WATER_BUCKET;
+        return ModItems.PRIMORDIAL_SOUP_BUCKET;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class OxygenDeficientWater extends ModFluid{
         return false;
     }
 
-    public static class Flowing extends OxygenDeficientWater {
+    public static class Flowing extends PrimordialSoup {
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -69,7 +69,7 @@ public class OxygenDeficientWater extends ModFluid{
         }
     }
 
-    public static class Still extends OxygenDeficientWater {
+    public static class Still extends PrimordialSoup {
         @Override
         public int getLevel(FluidState fluidState) {
             return 8;

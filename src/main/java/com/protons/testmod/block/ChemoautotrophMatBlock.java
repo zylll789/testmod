@@ -78,8 +78,8 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
             if (!state.getFluidState().isEmpty()) {
                 blockState = blockState.with(WATERLOGGED, Boolean.valueOf(true))
                         .with(LOGGED_WATER, world.getFluidState(pos).getFluid() == Fluids.WATER ?
-                        FluidTypes.WATER : world.getFluidState(pos).getFluid()== ModFluids.OXYGEN_DEFICIENT_WATER_STILL ?
-                                FluidTypes.OXYGEN_DEFICIENT_WATER : FluidTypes.DRY);
+                        FluidTypes.WATER : world.getFluidState(pos).getFluid()== ModFluids.PRIMORDIAL_SOUP_STILL ?
+                                FluidTypes.PRIMORDIAL_SOUP : FluidTypes.DRY);
             }
 
             world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
@@ -90,8 +90,8 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            if (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER){
-                world.scheduleFluidTick(pos, ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getTickRate(world));
+            if (state.get(LOGGED_WATER) == FluidTypes.PRIMORDIAL_SOUP){
+                world.scheduleFluidTick(pos, ModFluids.PRIMORDIAL_SOUP_STILL, ModFluids.PRIMORDIAL_SOUP_STILL.getTickRate(world));
             }
             if (state.get(LOGGED_WATER) == FluidTypes.WATER){
                 world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
@@ -102,7 +102,7 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.OXYGEN_DEFICIENT_WATER ? ModFluids.OXYGEN_DEFICIENT_WATER_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.PRIMORDIAL_SOUP ? ModFluids.PRIMORDIAL_SOUP_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
     }
 
     @Override

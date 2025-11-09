@@ -40,6 +40,10 @@
   "block.testmod.primordial_petri_dish": "Primordial Petri Dish",
   "item.testmod.crystal_of_life": "Crystal Of Life",
   "block.testmod.chemoautotroph_mat": "Chemoautotroph Mat",
+  "block.testmod.primordial_soup": "Primordial Soup",
+  "fluid.testmod.primordial_soup_still": "Primordial Soup Still",
+  "fluid.testmod.primordial_soup_flowing": "Primordial Soup Flowing",
+  "item.testmod.primordial_soup_bucket": "Primordial Soup Bucket",
 
   "itemGroup.proterozoic_eon_group": "Proterozoic group",
   "item.testmod.stromatolite_fragments": "Stromatolite Fragments",
@@ -65,9 +69,5 @@
   "entity.testmod.charnia": "Charnia",
   "item.testmod.charnia_spawn_egg": "Charnia Spawn Egg",
   "entity.testmod.rangea": "Rangea",
-  "item.testmod.rangea_spawn_egg": "Rangea Spawn Egg",
-  "block.testmod.oxygen_deficient_water": "Oxygen-Deficient Water",
-  "fluid.testmod.oxygen_deficient_water_still": "Oxygen-Deficient Water Still",
-  "fluid.testmod.oxygen_deficient_water_flowing": "Oxygen-Deficient Water Flowing",
-  "item.testmod.oxygen_deficient_water_bucket": "Oxygen-Deficient Water Bucket"
+  "item.testmod.rangea_spawn_egg": "Rangea Spawn Egg"
 }

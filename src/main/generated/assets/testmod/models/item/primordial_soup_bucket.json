@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "testmod:item/oxygen_deficient_water_bucket"
+    "layer0": "testmod:item/primordial_soup_bucket"
   }
 }

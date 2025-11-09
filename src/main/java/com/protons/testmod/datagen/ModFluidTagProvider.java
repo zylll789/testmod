@@ -17,7 +17,7 @@ public class ModFluidTagProvider extends FabricTagProvider.FluidTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(FluidTags.WATER)
-                .add(ModFluids.OXYGEN_DEFICIENT_WATER_FLOWING)
-                .add(ModFluids.OXYGEN_DEFICIENT_WATER_STILL);
+                .add(ModFluids.PRIMORDIAL_SOUP_FLOWING)
+                .add(ModFluids.PRIMORDIAL_SOUP_STILL);
     }
 }

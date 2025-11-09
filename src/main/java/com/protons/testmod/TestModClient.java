@@ -25,13 +25,13 @@ public class TestModClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHEMOAUTOTROPH_MAT, RenderLayer.getCutout());
 
-        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_FLOWING, new SimpleFluidRenderHandler(
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.PRIMORDIAL_SOUP_STILL, ModFluids.PRIMORDIAL_SOUP_FLOWING, new SimpleFluidRenderHandler(
                 new Identifier("minecraft:block/water_still"),
                 new Identifier("minecraft:block/water_flow"),
                 0x4F493C
         ));
 
-        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.OXYGEN_DEFICIENT_WATER_STILL, ModFluids.OXYGEN_DEFICIENT_WATER_FLOWING);
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.PRIMORDIAL_SOUP_STILL, ModFluids.PRIMORDIAL_SOUP_FLOWING);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BARITE_CLUSTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_BARITE_BUD, RenderLayer.getCutout());

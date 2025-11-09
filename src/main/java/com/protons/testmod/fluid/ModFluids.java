@@ -7,8 +7,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModFluids {
-    public static final FlowableFluid OXYGEN_DEFICIENT_WATER_STILL = registerFluids("oxygen_deficient_water_still", new OxygenDeficientWater.Still());
-    public static final FlowableFluid OXYGEN_DEFICIENT_WATER_FLOWING = registerFluids("oxygen_deficient_water_flowing", new OxygenDeficientWater.Flowing());
+    public static final FlowableFluid PRIMORDIAL_SOUP_STILL = registerFluids("primordial_soup_still", new PrimordialSoup.Still());
+    public static final FlowableFluid PRIMORDIAL_SOUP_FLOWING = registerFluids("primordial_soup_flowing", new PrimordialSoup.Flowing());
 
     private static FlowableFluid registerFluids(String name, ModFluid modfluid) {
         return Registry.register(Registries.FLUID, new Identifier(TestMod.MOD_ID, name), modfluid);

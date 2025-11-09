@@ -19,7 +19,6 @@ public class ModItemGroup {
                 entries.add(ModBlocks.RHYOLITE_BLOCK);
                 entries.add(ModBlocks.GRANULITE_BLOCK);
                 entries.add(ModBlocks.SILT_BLOCK);
-                entries.add(ModItems.OXYGEN_DEFICIENT_WATER_BUCKET);
                 //已修改或新增
                 entries.add(ModBlocks.PRIMORDIAL_CRUST_ROCK_BLOCK);
                 entries.add(ModBlocks.KOMATIITE_BLOCK);
@@ -61,6 +60,7 @@ public class ModItemGroup {
                 entries.add(ModBlocks.PRIMORDIAL_PETRI_DISH);
                 entries.add(ModItems.CRYSTAL_OF_LIFE);
                 entries.add(ModBlocks.CHEMOAUTOTROPH_MAT);
+                entries.add(ModItems.PRIMORDIAL_SOUP_BUCKET);
             }).build());
 
     public static final ItemGroup PROTEROZOIC_EON = Registry.register(Registries.ITEM_GROUP, new Identifier(TestMod.MOD_ID, "proterozoic_eon_group"),

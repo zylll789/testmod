@@ -12,9 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 
 public class ModBlocks {
     public static final Block STROMATOLITE_BLOCK = registerBlocksWithBlockItems("stromatolite_block", new StromatoliteBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque().requiresTool()));
@@ -34,7 +32,7 @@ public class ModBlocks {
     public static final Block PHYLLITE_BLOCK = registerBlocksWithBlockItems("phyllite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block PHYLLITE_BLOCK_FOSSIL = registerBlocksWithBlockItems("phyllite_block_fossil", new PhylliteBlockFossil(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block SILT_BLOCK = registerBlocksWithBlockItems("silt_block", new SiltBlock(AbstractBlock.Settings.copy(Blocks.CLAY)));
-    public static final Block OXYGEN_DEFICIENT_WATER = registerBlocks("oxygen_deficient_water", new FluidBlock(ModFluids.OXYGEN_DEFICIENT_WATER_STILL, AbstractBlock.Settings.copy(Blocks.WATER)));
+    public static final Block OXYGEN_DEFICIENT_WATER = registerBlocks("oxygen_deficient_water", new FluidBlock(ModFluids.PRIMORDIAL_SOUP_STILL, AbstractBlock.Settings.copy(Blocks.WATER)));
 
     //已修改或新增
     public static final Block PRIMORDIAL_CRUST_ROCK_BLOCK = registerBlocksWithBlockItems("primordial_crust_rock_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));

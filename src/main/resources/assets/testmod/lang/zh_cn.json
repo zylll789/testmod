@@ -40,6 +40,10 @@
   "block.testmod.primordial_petri_dish": "原始培养皿",
   "item.testmod.crystal_of_life": "生命结晶",
   "block.testmod.chemoautotroph_mat": "化学自养菌毯",
+  "block.testmod.primordial_soup": "原生质海",
+  "fluid.testmod.primordial_soup_still": "原生质海（静止）",
+  "fluid.testmod.primordial_soup_flowing": "原生质海（流动）",
+  "item.testmod.primordial_soup_bucket": "原生质海桶",
 
   "itemGroup.proterozoic_eon_group": "元古代",
   "item.testmod.stromatolite_fragments": "叠层石碎块",
@@ -65,9 +69,5 @@
   "entity.testmod.charnia": "恰尼虫",
   "item.testmod.charnia_spawn_egg": "恰尼虫刷怪蛋",
   "entity.testmod.rangea": "兰吉海鳃虫",
-  "item.testmod.rangea_spawn_egg": "兰吉海鳃虫刷怪蛋",
-  "block.testmod.oxygen_deficient_water": "缺氧水",
-  "fluid.testmod.oxygen_deficient_water_still": "缺氧水（静止）",
-  "fluid.testmod.oxygen_deficient_water_flowing": "缺氧水（流动）",
-  "item.testmod.oxygen_deficient_water_bucket": "缺氧水桶"
+  "item.testmod.rangea_spawn_egg": "兰吉海鳃虫刷怪蛋"
 }

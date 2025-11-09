@@ -6,7 +6,7 @@ public enum FluidTypes implements StringIdentifiable {
 
     DRY("dry"),
     WATER("water"),
-    OXYGEN_DEFICIENT_WATER("oxygen_deficient_water");
+    PRIMORDIAL_SOUP("primordial_soup");
 
     private final String name;
 
