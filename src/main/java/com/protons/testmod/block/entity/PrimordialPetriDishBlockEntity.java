@@ -74,6 +74,11 @@ public class PrimordialPetriDishBlockEntity extends LootableContainerBlockEntity
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
+        if (!this.primordialPetriDish.canStartWork(state, world, pos)){
+            tickCount = 0;
+            world.setBlockState(pos, state.with(ModProperties.IS_CRAFTING, false));
+            return;
+        }
         if (state.get(ModProperties.IS_CRAFTING)) {
             tickCount++;
         }
@@ -81,7 +86,7 @@ public class PrimordialPetriDishBlockEntity extends LootableContainerBlockEntity
                 inv.get(1).getItem() == ModItems.SULFUR &&
                 inv.get(2).getItem() == Items.GOLD_NUGGET &&
                 inv.get(3).getItem() == Items.IRON_NUGGET &&
-                inv.get(4).getCount() < ModItems.CHARNIA_SPAWN_EGG.getMaxCount()) {
+                inv.get(4).getCount() < ModItems.CRYSTAL_OF_LIFE.getMaxCount()) {
             inv.get(0).decrement(1);
             inv.get(1).decrement(1);
             inv.get(2).decrement(1);
@@ -90,7 +95,7 @@ public class PrimordialPetriDishBlockEntity extends LootableContainerBlockEntity
         }
         if (tickCount >= TICKS_TO_COMBINE) {
             if (inv.get(4).isEmpty()) {
-                inv.set(4, new ItemStack(ModItems.CHARNIA_SPAWN_EGG, 1));
+                inv.set(4, new ItemStack(ModItems.CRYSTAL_OF_LIFE, 1));
             } else {
                 inv.get(4).increment(1);
             }

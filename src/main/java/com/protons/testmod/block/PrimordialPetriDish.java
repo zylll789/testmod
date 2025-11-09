@@ -118,8 +118,16 @@ public class PrimordialPetriDish extends BlockWithEntity implements ModWaterLogg
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
-    public boolean canStartWork(){
-        return this.getDefaultState().get(LOGGED_WATER)==FluidTypes.PRIMORDIAL_SOUP;
+    public boolean canStartWork(BlockState state, World world, BlockPos pos){
+        boolean bl = false;
+        for (BlockPos near : BlockPos.iterate(pos.add(-2,-2,-2), pos.add(2,2,2))){
+            if (world.getBlockState(near).isOf(ModBlocks.CHEMOAUTOTROPH_MAT)){
+                if (world.getBlockState(near).get(LOGGED_WATER)==FluidTypes.PRIMORDIAL_SOUP){
+                    bl = true;
+                }
+            }
+        }
+        return state.get(LOGGED_WATER)==FluidTypes.PRIMORDIAL_SOUP && bl;
     }
 
     @Override

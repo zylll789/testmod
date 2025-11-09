@@ -5,6 +5,7 @@ import com.protons.testmod.item.ModItems;
 import com.protons.testmod.registry.tag.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import org.jetbrains.annotations.Nullable;
@@ -30,5 +31,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.PICKAXES)
                 .add(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE)
                 .add(ModItems.STONE_HANDLED_STONE_PICKAXE);
+
+        getOrCreateTagBuilder(ModItemTags.CHEMOAUTOTROPH_MAT_LIT)
+                .add(ModItems.SULFUR)
+                .add(Items.IRON_NUGGET);
     }
 }

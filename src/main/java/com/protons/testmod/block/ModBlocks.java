@@ -2,6 +2,7 @@ package com.protons.testmod.block;
 
 import com.protons.testmod.TestMod;
 import com.protons.testmod.fluid.ModFluids;
+import com.protons.testmod.state.property.ModProperties;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -108,6 +109,7 @@ public class ModBlocks {
     public static final Block CHEMOAUTOTROPH_MAT = registerBlocksWithBlockItems("chemoautotroph_mat", new ChemoautotrophMatBlock(
             AbstractBlock.Settings.create()
                     .solid()
+                    .luminance(state -> state.get(ModProperties.LIGHT))
                     //.nonOpaque()
                     .noCollision()
                     .strength(0.2F)

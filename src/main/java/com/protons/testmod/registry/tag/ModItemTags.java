@@ -10,6 +10,8 @@ public class ModItemTags {
     public static final TagKey<Item> MOD_CRUDE_STONE_TOOL_MATERIALS = of("mod_crude_stone_tool_materials");
     public static final TagKey<Item> MOD_STONE_TOOL_MATERIALS = of("mod_stone_tool_materials");
 
+    public static final TagKey<Item> CHEMOAUTOTROPH_MAT_LIT = of("chemoautotroph_mat_lit");
+
     private static TagKey<Item> of(String id) {
         return TagKey.of(RegistryKeys.ITEM, new Identifier(TestMod.MOD_ID,id));
     }
