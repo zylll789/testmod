@@ -49,6 +49,7 @@ public class ModItemGroup {
                 entries.add(ModBlocks.HYDROTHERMAL_VENT_BLOCK_SMALL);
                 entries.add(ModItems.SULFUR);
                 entries.add(ModBlocks.METEORITE_BLOCK);
+                entries.add(ModBlocks.IRON_METEORITE_BLOCK);
                 entries.add(ModBlocks.RUBBLE_PILE);
                 entries.add(ModItems.BAR_SHAPED_CRUSHED_STONE);
                 entries.add(ModBlocks.VOLCANIC_ASH_BLOCK);

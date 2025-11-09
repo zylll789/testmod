@@ -52,6 +52,7 @@ public class ModModelsProvider extends FabricModelProvider {
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.HYDROTHERMAL_VENT_BLOCK_MIDDLE);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.HYDROTHERMAL_VENT_BLOCK_SMALL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.METEORITE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.IRON_METEORITE_BLOCK);
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.RUBBLE_PILE);
         blockStateModelGenerator.registerAmethyst(ModBlocks.BARITE_CLUSTER);
         blockStateModelGenerator.registerAmethyst(ModBlocks.LARGE_BARITE_BUD);

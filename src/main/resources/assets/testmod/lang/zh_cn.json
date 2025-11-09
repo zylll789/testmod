@@ -28,6 +28,7 @@
   "block.testmod.hydrothermal_vent_block_small": "小型热泉喷口",
   "item.testmod.sulfur": "硫磺",
   "block.testmod.meteorite_block": "陨石",
+  "block.testmod.iron_meteorite_block": "含铁陨石",
   "block.testmod.rubble_pile": "碎石堆",
   "item.testmod.bar_shaped_crushed_stone": "条状碎石",
   "item.testmod.stone_stick": "磨制石棍",

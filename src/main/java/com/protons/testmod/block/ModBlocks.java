@@ -41,13 +41,13 @@ public class ModBlocks {
     public static final Block KOMATIITE_BLOCK = registerBlocksWithBlockItems("komatiite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block SERPENTINITE_BLOCK = registerBlocksWithBlockItems("serpentinite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block GREEN_SCHIST_BLOCK = registerBlocksWithBlockItems("green_schist_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block TONALITE_BLOCK = registerBlocksWithBlockItems("tonalite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block TRONDHJEMITE_BLOCK = registerBlocksWithBlockItems("trondhjemite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block GRANODIORITE_BLOCK = registerBlocksWithBlockItems("granodiorite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block GNEISS_BLOCK = registerBlocksWithBlockItems("gneiss_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block BANDED_IRON_FORMATION_BLOCK = registerBlocksWithBlockItems("banded_iron_formation_block", new BandedIronFormationBlock(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block QUARTZ_REEF_BLOCK = registerBlocksWithBlockItems("quartz_reef_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block QUARTZ_REEF_GOLD_ORE_BLOCK = registerBlocksWithBlockItems("quartz_reef_gold_ore_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
+    public static final Block TONALITE_BLOCK = registerBlocksWithBlockItems("tonalite_block", new Block(AbstractBlock.Settings.copy(Blocks.GRANITE).requiresTool()));
+    public static final Block TRONDHJEMITE_BLOCK = registerBlocksWithBlockItems("trondhjemite_block", new Block(AbstractBlock.Settings.copy(Blocks.GRANITE).requiresTool()));
+    public static final Block GRANODIORITE_BLOCK = registerBlocksWithBlockItems("granodiorite_block", new Block(AbstractBlock.Settings.copy(Blocks.GRANITE).requiresTool()));
+    public static final Block GNEISS_BLOCK = registerBlocksWithBlockItems("gneiss_block", new Block(AbstractBlock.Settings.copy(Blocks.GRANITE).requiresTool()));
+    public static final Block BANDED_IRON_FORMATION_BLOCK = registerBlocksWithBlockItems("banded_iron_formation_block", new BandedIronFormationBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE).requiresTool()));
+    public static final Block QUARTZ_REEF_BLOCK = registerBlocksWithBlockItems("quartz_reef_block", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).requiresTool()));
+    public static final Block QUARTZ_REEF_GOLD_ORE_BLOCK = registerBlocksWithBlockItems("quartz_reef_gold_ore_block", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_GOLD_ORE).requiresTool()));
     public static final Block SINTER_BLOCK = registerBlocksWithBlockItems("sinter_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block SINTER_SULFUR_DEPOSIT_BLOCK = registerBlocksWithBlockItems("sinter_sulfur_deposit_block", new SinterSulfurDepositBlock(AbstractBlock.Settings.create()
             .ticksRandomly()
@@ -61,6 +61,7 @@ public class ModBlocks {
             .strength(1.5F)
             .luminance(state -> 5)
             .pistonBehavior(PistonBehavior.DESTROY)
+            .requiresTool()
     ));
     public static final Block LARGE_SULFUR_BUD = registerBlocksWithBlockItems("large_sulfur_bud", new SulfurClusterBlock(5.0F, 3.0F, AbstractBlock.Settings.copyShallow(SULFUR_CLUSTER).luminance(state -> 4)));
     public static final Block MEDIUM_SULFUR_BUD = registerBlocksWithBlockItems("medium_sulfur_bud", new SulfurClusterBlock(4.0F, 3.0F, AbstractBlock.Settings.copyShallow(SULFUR_CLUSTER).luminance(state -> 2)));
@@ -70,7 +71,8 @@ public class ModBlocks {
     public static final Block HYDROTHERMAL_VENT_BLOCK_LARGE = registerBlocksWithBlockItems("hydrothermal_vent_block_large", new HydrothermalVentBlockLarge(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block HYDROTHERMAL_VENT_BLOCK_MIDDLE = registerBlocksWithBlockItems("hydrothermal_vent_block_middle", new HydrothermalVentBlockMiddle(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block HYDROTHERMAL_VENT_BLOCK_SMALL = registerBlocksWithBlockItems("hydrothermal_vent_block_small", new HydrothermalVentBlockSmall(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
-    public static final Block METEORITE_BLOCK = registerBlocksWithBlockItems("meteorite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
+    public static final Block METEORITE_BLOCK = registerBlocksWithBlockItems("meteorite_block", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).requiresTool()));
+    public static final Block IRON_METEORITE_BLOCK = registerBlocksWithBlockItems("iron_meteorite_block", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_IRON_ORE).requiresTool()));
     public static final Block RUBBLE_PILE = registerBlocksWithBlockItems("rubble_pile", new RubblePile(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block SINTER_BARITE_DEPOSIT_BLOCK = registerBlocksWithBlockItems("sinter_barite_deposit_block", new SinterBariteDepositBlock(AbstractBlock.Settings.create()
             .ticksRandomly()
@@ -78,15 +80,13 @@ public class ModBlocks {
             .requiresTool()
             .pistonBehavior(PistonBehavior.DESTROY)
     ));
-    public static final Block BARITE_CLUSTER = registerBlocksWithBlockItems(
-            "barite_cluster",
-            new BariteClusterBlock(7.0F, 3.0F,
-                    AbstractBlock.Settings.copyShallow(Blocks.AMETHYST_CLUSTER)
+    public static final Block BARITE_CLUSTER = registerBlocksWithBlockItems("barite_cluster", new BariteClusterBlock(7.0F, 3.0F, AbstractBlock.Settings.copyShallow(Blocks.AMETHYST_CLUSTER)
             .solid()
             .nonOpaque()
             .strength(1.5F)
             .luminance(state -> 5)
             .pistonBehavior(PistonBehavior.DESTROY)
+            .requiresTool()
     ));
     public static final Block LARGE_BARITE_BUD = registerBlocksWithBlockItems("large_barite_bud", new BariteClusterBlock(5.0F, 3.0F, AbstractBlock.Settings.copyShallow(BARITE_CLUSTER).luminance(state -> 4)));
     public static final Block MEDIUM_BARITE_BUD = registerBlocksWithBlockItems("medium_barite_bud", new BariteClusterBlock(4.0F, 3.0F, AbstractBlock.Settings.copyShallow(BARITE_CLUSTER).luminance(state -> 2)));

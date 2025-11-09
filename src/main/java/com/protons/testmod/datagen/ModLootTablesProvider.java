@@ -65,6 +65,7 @@ public class ModLootTablesProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.HYDROTHERMAL_VENT_BLOCK_MIDDLE);
         addDrop(ModBlocks.HYDROTHERMAL_VENT_BLOCK_SMALL);
         addDrop(ModBlocks.METEORITE_BLOCK);
+        addDrop(ModBlocks.IRON_METEORITE_BLOCK, BlockDropsWithOneLoot(ModBlocks.IRON_METEORITE_BLOCK, ModBlocks.METEORITE_BLOCK.asItem(), Items.IRON_NUGGET, 3.0F, 6.0F, new float[]{0F, 0.2F, 0.5F, 1F}));
         addDrop(ModBlocks.RUBBLE_PILE, OreDrops(ModBlocks.RUBBLE_PILE, ModItems.BAR_SHAPED_CRUSHED_STONE, 0.0F, 2.0F));
         addDrop(ModBlocks.SULFUR_CLUSTER, ConstantOreDrops(ModBlocks.SULFUR_CLUSTER, ModItems.SULFUR, 4.0F));
         addDrop(ModBlocks.LARGE_SULFUR_BUD, ConstantOreDrops(ModBlocks.LARGE_SULFUR_BUD, ModItems.SULFUR, 3.0F));
