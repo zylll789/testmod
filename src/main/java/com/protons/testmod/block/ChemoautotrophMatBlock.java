@@ -11,11 +11,17 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -56,10 +62,46 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
                         FluidTypes.PRIMORDIAL_SOUP : FluidTypes.DRY));
     }
 
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (!world.isClient) world.scheduleBlockTick(pos, this, 10);
+    }
 
     @Override
+    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        System.out.println("SERVER TICK " + pos);
+        if (state.get(ModProperties.LOGGED_WATER) != FluidTypes.PRIMORDIAL_SOUP) {
+            world.setBlockState(pos, state.with(LIGHT, 0), Block.NOTIFY_ALL);
+            world.scheduleBlockTick(pos, this, 10);
+            return;
+        }
+        int light = 0;
+        for (BlockPos near : BlockPos.iterate(pos.add(-2, -2, -2), pos.add(2, 2, 2))) {
+            if (world.getBlockState(near).isOf(ModBlocks.PRIMORDIAL_PETRI_DISH) &&
+                    world.getBlockState(near).get(ModProperties.IS_CRAFTING)) {
+                light = 15;
+                break;
+            }
+        }
+        if (light == 0) {
+            for (PlayerEntity player : world.getPlayers()) {
+                if (player.getMainHandStack().isIn(ModItemTags.CHEMOAUTOTROPH_MAT_LIT) &&
+                        player.getBlockPos().getManhattanDistance(pos) <= 5) {
+                    light = 7;
+                    break;
+                }
+            }
+        }
+        if (state.get(LIGHT) != light) {
+            world.setBlockState(pos, state.with(LIGHT, light), Block.NOTIFY_ALL);
+        }
+        world.scheduleBlockTick(pos, this, 10);
+    }
+/*
+    @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!world.isClient) return;
+        if (world.isClient) return;
+        System.out.println("111");
         if (state.get(ModProperties.LOGGED_WATER) != FluidTypes.PRIMORDIAL_SOUP){
             world.setBlockState(pos, state.with(LIGHT, 0), Block.NOTIFY_ALL);
             return;
@@ -84,7 +126,7 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
         }
         world.setBlockState(pos, state.with(LIGHT, 0), Block.NOTIFY_ALL);
         super.randomDisplayTick(state, world, pos, random);
-    }
+    }*/
 
     @Override
     public MapCodec<ChemoautotrophMatBlock> getCodec() {
@@ -156,10 +198,6 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
         return state.get(WATERLOGGED) ? (state.get(LOGGED_WATER) == FluidTypes.PRIMORDIAL_SOUP ? ModFluids.PRIMORDIAL_SOUP_STILL.getStill(false) : (state.get(LOGGED_WATER) == FluidTypes.WATER ? Fluids.WATER.getStill(false) : super.getFluidState(state))) : super.getFluidState(state);
     }
 
-    @Override
-    protected boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
-        return true;
-    }
 
 
 
