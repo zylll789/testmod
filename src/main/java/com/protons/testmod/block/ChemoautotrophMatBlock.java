@@ -69,7 +69,6 @@ public class ChemoautotrophMatBlock extends MultifaceGrowthBlock implements ModW
 
     @Override
     protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        System.out.println("SERVER TICK " + pos);
         if (state.get(ModProperties.LOGGED_WATER) != FluidTypes.PRIMORDIAL_SOUP) {
             world.setBlockState(pos, state.with(LIGHT, 0), Block.NOTIFY_ALL);
             world.scheduleBlockTick(pos, this, 10);

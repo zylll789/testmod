@@ -1,6 +1,7 @@
 package com.protons.testmod.block;
 
 import com.mojang.serialization.MapCodec;
+import com.protons.testmod.screen.handler.CrudeCraftingScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,7 +43,7 @@ public class CrudeCraftingTableBlock extends Block {
 	@Override
 	protected NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
 		return new SimpleNamedScreenHandlerFactory(
-			(syncId, inventory, player) -> new CraftingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), TITLE
+			(syncId, inventory, player) -> new CrudeCraftingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), TITLE
 		);
 	}
 }

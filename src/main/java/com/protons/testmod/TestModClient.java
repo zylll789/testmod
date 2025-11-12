@@ -4,6 +4,7 @@ import com.protons.testmod.block.ModBlocks;
 import com.protons.testmod.entity.ModEntities;
 import com.protons.testmod.entity.client.*;
 import com.protons.testmod.fluid.ModFluids;
+import com.protons.testmod.screen.ModScreens;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
@@ -16,6 +17,9 @@ import net.minecraft.util.Identifier;
 public class TestModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
+        ModScreens.registerModScreens();
+
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.DICKINSONIA, DickinsoniaModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.DICKINSONIA, DickinsoniaRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CHARNIA, CharniaModel::getTexturedModelData);
