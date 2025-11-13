@@ -2,6 +2,8 @@ package com.protons.testmod.screen.handler;
 
 import com.protons.testmod.block.ModBlocks;
 import com.protons.testmod.inventory.CrudeCraftingInventory;
+import com.protons.testmod.recipe.CrudeCraftingRecipe;
+import com.protons.testmod.recipe.ModRecipeType;
 import com.protons.testmod.screen.ModScreens;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,10 +12,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
-import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeMatcher;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.ScreenHandler;
@@ -123,7 +123,7 @@ public class CrudeCraftingScreenHandler extends AbstractRecipeScreenHandler<Reci
     public ItemStack quickMove(PlayerEntity player, int slot) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot2 = this.slots.get(slot);
-        if (slot2 != null && slot2.hasStack()) {
+        if (slot2.hasStack()) {
             ItemStack itemStack2 = slot2.getStack();
             itemStack = itemStack2.copy();
             if (slot == 0) {
@@ -177,10 +177,10 @@ public class CrudeCraftingScreenHandler extends AbstractRecipeScreenHandler<Reci
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)player;
             ItemStack itemStack = ItemStack.EMPTY;
-            Optional<RecipeEntry<CraftingRecipe>> optional = world.getServer().getRecipeManager().getFirstMatch(RecipeType.CRAFTING, craftingInventory, world);
+            Optional<RecipeEntry<CrudeCraftingRecipe>> optional = world.getServer().getRecipeManager().getFirstMatch(ModRecipeType.CRUDE_CRAFTING, craftingInventory, world);
             if (optional.isPresent()) {
-                RecipeEntry<CraftingRecipe> recipeEntry = (RecipeEntry<CraftingRecipe>)optional.get();
-                CraftingRecipe craftingRecipe = recipeEntry.value();
+                RecipeEntry<CrudeCraftingRecipe> recipeEntry = optional.get();
+                CrudeCraftingRecipe craftingRecipe = recipeEntry.value();
                 if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, recipeEntry)) {
                     ItemStack itemStack2 = craftingRecipe.craft(craftingInventory, world.getRegistryManager());
                     if (itemStack2.isItemEnabled(world.getEnabledFeatures())) {

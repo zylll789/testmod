@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "testmod:crude_crafting",
   "category": "equipment",
   "key": {
     "#": {

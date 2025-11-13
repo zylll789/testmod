@@ -6,9 +6,10 @@ import com.protons.testmod.entity.ModEntities;
 import com.protons.testmod.fluid.ModFluids;
 import com.protons.testmod.item.ModItemGroup;
 import com.protons.testmod.item.ModItems;
+import com.protons.testmod.recipe.ModRecipeSerializers;
+import com.protons.testmod.recipe.ModRecipeType;
 import net.fabricmc.api.ModInitializer;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,5 +34,7 @@ public class TestMod implements ModInitializer {
         ModBlockEntities.registerModBlockEntities();
 		ModFluids.registerModFluids();
 		ModEntities.registerModEntities();
+        ModRecipeSerializers.register();
+        ModRecipeType.register();
 	}
 }
