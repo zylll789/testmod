@@ -52,10 +52,10 @@ public class CrudeCraftingScreenHandler extends AbstractRecipeScreenHandler<Reci
         this.addSlot(new Slot(this.input, 0, 20, 17));
         this.addSlot(new Slot(this.input, 1, 45, 12));
         this.addSlot(new Slot(this.input, 2, 70, 10));
-        this.addSlot(new Slot(this.input, 3, 50, 36));
-        this.addSlot(new Slot(this.input, 4, 74, 29));
-        this.addSlot(new Slot(this.input, 5, 24, 52));
-        this.addSlot(new Slot(this.input, 6, 74, 50));
+        this.addSlot(new Slot(this.input, 4, 50, 36));
+        this.addSlot(new Slot(this.input, 5, 74, 29));
+        this.addSlot(new Slot(this.input, 6, 24, 52));
+        this.addSlot(new Slot(this.input, 8, 74, 50));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -96,7 +96,7 @@ public class CrudeCraftingScreenHandler extends AbstractRecipeScreenHandler<Reci
 
     @Override
     public int getCraftingSlotCount() {
-        return 8;
+        return 10;
     }
 
     @Override
@@ -106,7 +106,7 @@ public class CrudeCraftingScreenHandler extends AbstractRecipeScreenHandler<Reci
 
     @Override
     public boolean canInsertIntoSlot(int index) {
-        return index != this.getCraftingResultSlotIndex();
+        return index != this.getCraftingResultSlotIndex() && index != 4 && index != 8;
     }
 
     @Override

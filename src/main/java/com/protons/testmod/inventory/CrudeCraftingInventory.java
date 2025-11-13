@@ -45,7 +45,7 @@ public class CrudeCraftingInventory implements RecipeInputInventory {
 
     @Override
     public int size() {
-        return 7;
+        return 9;
     }
 
     @Override
