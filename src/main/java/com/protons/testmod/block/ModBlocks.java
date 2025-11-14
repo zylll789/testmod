@@ -66,7 +66,7 @@ public class ModBlocks {
     public static final Block MEDIUM_SULFUR_BUD = registerBlocksWithBlockItems("medium_sulfur_bud", new SulfurClusterBlock(4.0F, 3.0F, AbstractBlock.Settings.copyShallow(SULFUR_CLUSTER).luminance(state -> 2)));
     public static final Block SMALL_SULFUR_BUD = registerBlocksWithBlockItems("small_sulfur_bud", new SulfurClusterBlock(3.0F, 4.0F, AbstractBlock.Settings.copyShallow(SULFUR_CLUSTER).luminance(state -> 1)));
 
-    public static final Block HYDROTHERMAL_VENT_BLOCK = registerBlocksWithBlockItems("hydrothermal_vent_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
+    public static final Block HYDROTHERMAL_VENT_BLOCK = registerBlocksWithBlockItems("hydrothermal_vent_block", new HydrothermalVentBlock(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block HYDROTHERMAL_VENT_BLOCK_LARGE = registerBlocksWithBlockItems("hydrothermal_vent_block_large", new HydrothermalVentBlockLarge(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block HYDROTHERMAL_VENT_BLOCK_MIDDLE = registerBlocksWithBlockItems("hydrothermal_vent_block_middle", new HydrothermalVentBlockMiddle(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block HYDROTHERMAL_VENT_BLOCK_SMALL = registerBlocksWithBlockItems("hydrothermal_vent_block_small", new HydrothermalVentBlockSmall(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
