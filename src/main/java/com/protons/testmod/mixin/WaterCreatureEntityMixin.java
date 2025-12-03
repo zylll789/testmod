@@ -24,7 +24,7 @@ public class WaterCreatureEntityMixin extends PathAwareEntity {
     private void tickWaterBreathingAir(int air, CallbackInfo info) {
         WaterCreatureEntity entity = (WaterCreatureEntity)(Object) this;
         BlockState blockState = entity.getBlockStateAtPos();
-        if (blockState.isOf(ModBlocks.OXYGEN_DEFICIENT_WATER) && !(entity instanceof OxygenDeficient)) {
+        if (blockState.isOf(ModBlocks.PRIMORDIAL_SOUP) && !(entity instanceof OxygenDeficient)) {
             this.setAir(air - 1);
             if (this.getAir() == -20) {
                 this.setAir(0);

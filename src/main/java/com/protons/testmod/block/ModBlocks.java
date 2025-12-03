@@ -33,7 +33,7 @@ public class ModBlocks {
     public static final Block PHYLLITE_BLOCK = registerBlocksWithBlockItems("phyllite_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block PHYLLITE_BLOCK_FOSSIL = registerBlocksWithBlockItems("phyllite_block_fossil", new PhylliteBlockFossil(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
     public static final Block SILT_BLOCK = registerBlocksWithBlockItems("silt_block", new SiltBlock(AbstractBlock.Settings.copy(Blocks.CLAY)));
-    public static final Block OXYGEN_DEFICIENT_WATER = registerBlocks("oxygen_deficient_water", new FluidBlock(ModFluids.PRIMORDIAL_SOUP_STILL, AbstractBlock.Settings.copy(Blocks.WATER)));
+
 
     //已修改或新增
     public static final Block PRIMORDIAL_CRUST_ROCK_BLOCK = registerBlocksWithBlockItems("primordial_crust_rock_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).requiresTool()));
@@ -117,6 +117,9 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.SCULK_VEIN)
                     .pistonBehavior(PistonBehavior.DESTROY)
     ));
+
+    public static final Block PRIMORDIAL_SOUP = registerBlocks("primordial_soup", new FluidBlock(ModFluids.PRIMORDIAL_SOUP_STILL, AbstractBlock.Settings.copy(Blocks.WATER)));
+    public static final Block ACIDIC_HOT_SPRING = registerBlocks("acidic_hot_spring", new FluidBlock(ModFluids.ACIDIC_HOT_SPRING_STILL, AbstractBlock.Settings.copy(Blocks.WATER)));
 
     private static Block registerBlocksWithBlockItems(String name, Block block) {
         registerBlockItems(name, block);
