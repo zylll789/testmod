@@ -1,6 +1,8 @@
 {
   "values": [
     "testmod:primordial_soup_flowing",
-    "testmod:primordial_soup_still"
+    "testmod:primordial_soup_still",
+    "testmod:acidic_hot_spring_flowing",
+    "testmod:acidic_hot_spring_still"
   ]
 }

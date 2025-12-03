@@ -80,6 +80,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CRUDE_STONE_HANDLED_STONE_PICKAXE,ModModels.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_HANDLED_STONE_PICKAXE, ModModels.HANDHELD);
         itemModelGenerator.register(ModItems.PRIMORDIAL_SOUP_BUCKET, ModModels.GENERATED);
+        itemModelGenerator.register(ModItems.ACIDIC_HOT_SPRING_BUCKET, ModModels.GENERATED);
     }
 
     private void registerSnowLikeBlocks(Block layer, Block block, BlockStateModelGenerator blockStateModelGenerator) {

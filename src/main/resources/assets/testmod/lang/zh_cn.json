@@ -44,6 +44,10 @@
   "fluid.testmod.primordial_soup_still": "原生质海（静止）",
   "fluid.testmod.primordial_soup_flowing": "原生质海（流动）",
   "item.testmod.primordial_soup_bucket": "原生质海桶",
+  "block.testmod.acidic_hot_spring": "酸性热泉",
+  "fluid.testmod.acidic_hot_spring_still": "酸性热泉（静止）",
+  "fluid.testmod.acidic_hot_spring_flowing": "酸性热泉（流动）",
+  "item.testmod.acidic_hot_spring_bucket": "酸性热泉桶",
 
   "itemGroup.proterozoic_eon_group": "元古代",
   "item.testmod.stromatolite_fragments": "叠层石碎块",
