@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "testmod:archean/noise_modified/volcano_placement_combined",
+    "points": [
+      { "location": -1.0, "value": 0, "derivative": 0 },
+      { "location": 0.4, "value": 0, "derivative": 0 },
+      { "location": 0.98, "value": 1, "derivative": 0 },
+      { "location": 1.0, "value": 1, "derivative": 0 }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:add",
+  "argument1": "testmod:archean/noise_modified/volcano_base_dome",
+  "argument2": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:mul",
+      "argument1": 0.05,
+      "argument2": "testmod:archean/noise_input/volcano_ridges"
+    },
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 0.03,
+      "argument2": "testmod:archean/noise_input/volcano_roughness"
+    }
+  }
+}

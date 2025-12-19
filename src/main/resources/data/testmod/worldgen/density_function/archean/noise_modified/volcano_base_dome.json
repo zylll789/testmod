@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": {
+      "type": "testmod:custom_worley_noise",
+      "frequency_multiplier": 3.0,
+      "seed": 12345
+    },
+    "points": [
+      { "location": -1.0,  "value": 1.8, "derivative": 0 },
+      { "location": -0.98,  "value": 1.85, "derivative": 0 },
+      { "location": -0.96,  "value": 1.9, "derivative": 0 },
+      { "location": -0.95, "value": 2,  "derivative": 0 },
+      { "location": -0.8,  "value": 1.1,  "derivative": -2.0 },
+      { "location": -0.65, "value": 0.5, "derivative": 0 },
+      { "location": -0.5,  "value": 0,    "derivative": 0 },
+      { "location": 1.0,   "value": 0,    "derivative": 0 }
+    ]
+  }
+}

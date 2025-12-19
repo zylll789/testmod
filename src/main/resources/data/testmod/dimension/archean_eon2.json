@@ -1,0 +1,6 @@
+{
+  "type": "testmod:archean_eon",
+  "generator": {
+    "type": "minecraft:debug"
+  }
+}

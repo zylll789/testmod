@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:add",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": "testmod:archean/noise_modified/continents",
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 0.3,
+      "argument2": "testmod:archean/noise_input/low_hills"
+    }
+  },
+  "argument2": {
+    "type": "minecraft:mul",
+    "argument1": 0.15,
+    "argument2": "testmod:archean/noise_input/erosion"
+  }
+}

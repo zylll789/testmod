@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:mul",
+  "argument1": 0.8,
+  "argument2": "testmod:archean/noise_modified/volcano_unified"
+}

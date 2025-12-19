@@ -10,6 +10,7 @@ import com.protons.testmod.recipe.ModRecipeSerializers;
 import com.protons.testmod.recipe.ModRecipeType;
 import com.protons.testmod.world.biome.ModBiomes;
 import com.protons.testmod.world.biome.ModRegion;
+import com.protons.testmod.world.gen.densityfunction.ModDensityFunctionTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -33,6 +34,7 @@ public class TestMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
 		ModItems.registerModItems();
 		ModItemGroup.registerModItemGroup();
 		ModBlocks.registerModBlocks();
@@ -41,10 +43,12 @@ public class TestMod implements ModInitializer {
 		ModEntities.registerModEntities();
         ModRecipeSerializers.register();
         ModRecipeType.register();
+		ModDensityFunctionTypes.registerModDensityFunctionTypes();
 
-        ServerLifecycleEvents.SERVER_STARTING.register(server -> {
+		ServerLifecycleEvents.SERVER_STARTING.register(server -> {
             ServerLifecycleEvents.SERVER_STARTED.register(s -> {
                 ModBiomes.register();
+				ModDensityFunctionTypes.registerModDensityFunctionTypes();
             });
         });
 	}
