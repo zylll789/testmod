@@ -44,6 +44,10 @@
   "fluid.testmod.primordial_soup_still": "Primordial Soup Still",
   "fluid.testmod.primordial_soup_flowing": "Primordial Soup Flowing",
   "item.testmod.primordial_soup_bucket": "Primordial Soup Bucket",
+  "block.testmod.acidic_hot_spring": "Acidic Hot Spring",
+  "fluid.testmod.acidic_hot_spring_still": "Acidic Hot Spring Still",
+  "fluid.testmod.acidic_hot_spring_flowing": "Acidic Hot Spring Flowing",
+  "item.testmod.acidic_hot_spring_bucket": "Acidic Hot Spring Bucket",
 
   "itemGroup.proterozoic_eon_group": "Proterozoic group",
   "item.testmod.stromatolite_fragments": "Stromatolite Fragments",

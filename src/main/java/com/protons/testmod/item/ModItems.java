@@ -26,6 +26,7 @@ public class ModItems {
     public static final Item STONE_HANDLED_STONE_PICKAXE = registerItems("stone_handled_stone_pickaxe", new StoneHandledStonePickaxe(ModToolMaterials.MOD_STONE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.MOD_STONE, 1.0F, -2.8F))));
     public static final Item CRYSTAL_OF_LIFE = registerItems("crystal_of_life", new Item(new Item.Settings()));
     public static final Item PRIMORDIAL_SOUP_BUCKET = registerItems("primordial_soup_bucket", new ModBuckets(ModFluids.PRIMORDIAL_SOUP_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+    public static final Item ACIDIC_HOT_SPRING_BUCKET = registerItems("acidic_hot_spring_bucket", new ModBuckets(ModFluids.ACIDIC_HOT_SPRING_STILL, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
     private static void addItemsToIngredients(FabricItemGroupEntries fabricItemGroupEntries) {
         fabricItemGroupEntries.add(STROMATOLITE_FRAGMENTS);

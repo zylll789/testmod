@@ -34,8 +34,14 @@ public class TestModClient implements ClientModInitializer {
                 new Identifier("minecraft:block/water_flow"),
                 0x4F493C
         ));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.ACIDIC_HOT_SPRING_STILL, ModFluids.ACIDIC_HOT_SPRING_FLOWING, new SimpleFluidRenderHandler(
+                new Identifier("minecraft:block/water_still"),
+                new Identifier("minecraft:block/water_flow"),
+                0xB89815
+        ));
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.PRIMORDIAL_SOUP_STILL, ModFluids.PRIMORDIAL_SOUP_FLOWING);
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.ACIDIC_HOT_SPRING_STILL, ModFluids.ACIDIC_HOT_SPRING_FLOWING);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BARITE_CLUSTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_BARITE_BUD, RenderLayer.getCutout());

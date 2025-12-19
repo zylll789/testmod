@@ -18,6 +18,8 @@ public class ModFluidTagProvider extends FabricTagProvider.FluidTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(FluidTags.WATER)
                 .add(ModFluids.PRIMORDIAL_SOUP_FLOWING)
-                .add(ModFluids.PRIMORDIAL_SOUP_STILL);
+                .add(ModFluids.PRIMORDIAL_SOUP_STILL)
+                .add(ModFluids.ACIDIC_HOT_SPRING_FLOWING)
+                .add(ModFluids.ACIDIC_HOT_SPRING_STILL);
     }
 }

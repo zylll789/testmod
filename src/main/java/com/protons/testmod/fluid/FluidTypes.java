@@ -6,7 +6,8 @@ public enum FluidTypes implements StringIdentifiable {
 
     DRY("dry"),
     WATER("water"),
-    PRIMORDIAL_SOUP("primordial_soup");
+    PRIMORDIAL_SOUP("primordial_soup"),
+    ACIDIC_HOT_SPRING("acidic_hot_spring");
 
     private final String name;
 
