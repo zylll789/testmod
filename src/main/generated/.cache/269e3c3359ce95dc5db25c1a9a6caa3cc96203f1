@@ -1,5 +1,5 @@
-// 1.20.6	2025-11-14T00:24:12.9679996	Test Mod/Tags for minecraft:block
-ac9e7c208d6afec1ede4fff81fed35257c015269 data\testmod\tags\blocks\volcanic_ash_layer_cannot_survive_on.json
-5ef25fec0ab85eb3224de647fa42d680ad14983f data\minecraft\tags\blocks\needs_stone_tool.json
-322433cbed0be4e8da074b600286aad1f9b7aff5 data\testmod\tags\blocks\volcanic_ash_layer_can_survive_on.json
+// 1.20.6	2025-12-03T15:16:16.7635692	Test Mod/Tags for minecraft:block
 be67d98d9df20f7a79ebc9fe37642a5404fce406 data\minecraft\tags\blocks\mineable\pickaxe.json
+5ef25fec0ab85eb3224de647fa42d680ad14983f data\minecraft\tags\blocks\needs_stone_tool.json
+ac9e7c208d6afec1ede4fff81fed35257c015269 data\testmod\tags\blocks\volcanic_ash_layer_cannot_survive_on.json
+322433cbed0be4e8da074b600286aad1f9b7aff5 data\testmod\tags\blocks\volcanic_ash_layer_can_survive_on.json

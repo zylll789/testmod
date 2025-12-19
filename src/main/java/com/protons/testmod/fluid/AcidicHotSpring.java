@@ -1,7 +1,6 @@
 package com.protons.testmod.fluid;
 
 import com.protons.testmod.block.ModBlocks;
-import com.protons.testmod.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -10,10 +9,10 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.world.World;
 
-public class PrimordialSoup extends ModFluid{
-
-    public FluidTypes getFluidType(){
-        return FluidTypes.PRIMORDIAL_SOUP;
+public class AcidicHotSpring extends ModFluid{
+    @Override
+    public FluidTypes getFluidType() {
+        return FluidTypes.ACIDIC_HOT_SPRING;
     }
 
     @Override
@@ -23,27 +22,22 @@ public class PrimordialSoup extends ModFluid{
 
     @Override
     public Fluid getFlowing() {
-        return ModFluids.PRIMORDIAL_SOUP_FLOWING;
+        return ModFluids.ACIDIC_HOT_SPRING_FLOWING;
     }
 
     @Override
     public Fluid getStill() {
-        return ModFluids.PRIMORDIAL_SOUP_STILL;
-    }
-
-    @Override
-    public int getLevel(FluidState state) {
-        return state.getLevel();
+        return ModFluids.ACIDIC_HOT_SPRING_STILL;
     }
 
     @Override
     public Item getBucketItem() {
-        return ModItems.PRIMORDIAL_SOUP_BUCKET;
+        return null;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return ModBlocks.PRIMORDIAL_SOUP.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return ModBlocks.ACIDIC_HOT_SPRING.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
@@ -51,7 +45,12 @@ public class PrimordialSoup extends ModFluid{
         return false;
     }
 
-    public static class Flowing extends PrimordialSoup {
+    @Override
+    public int getLevel(FluidState state) {
+        return state.getLevel();
+    }
+
+    public static class Flowing extends AcidicHotSpring {
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -69,7 +68,7 @@ public class PrimordialSoup extends ModFluid{
         }
     }
 
-    public static class Still extends PrimordialSoup {
+    public static class Still extends AcidicHotSpring {
         @Override
         public int getLevel(FluidState fluidState) {
             return 8;

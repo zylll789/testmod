@@ -8,10 +8,15 @@ import com.protons.testmod.item.ModItemGroup;
 import com.protons.testmod.item.ModItems;
 import com.protons.testmod.recipe.ModRecipeSerializers;
 import com.protons.testmod.recipe.ModRecipeType;
+import com.protons.testmod.world.biome.ModBiomes;
+import com.protons.testmod.world.biome.ModRegion;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 public class TestMod implements ModInitializer {
 	public static final String MOD_ID = "testmod";
@@ -36,5 +41,13 @@ public class TestMod implements ModInitializer {
 		ModEntities.registerModEntities();
         ModRecipeSerializers.register();
         ModRecipeType.register();
+
+        ServerLifecycleEvents.SERVER_STARTING.register(server -> {
+            ServerLifecycleEvents.SERVER_STARTED.register(s -> {
+                ModBiomes.register();
+            });
+        });
 	}
+
+
 }
